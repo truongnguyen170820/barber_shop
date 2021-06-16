@@ -1,6 +1,7 @@
 import 'package:barber_shop/utils/color_utils.dart';
 import 'package:barber_shop/utils/font_utils.dart';
 import 'package:barber_shop/view/booking/booking_page.dart';
+import 'package:barber_shop/view/history/history_page.dart';
 import 'package:barber_shop/widget/global.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,9 @@ class _HomeMainViewState extends State<HomeMainView> {
                Navigator.push(context, MaterialPageRoute(builder: (context)=> BookingPage()));
              }),
              _buildItem("cart.png", "Cart"),
-             _buildItem("history.png", "History")
+             _buildItem("history.png", "History", ontap: (){
+               Navigator.push(context, MaterialPageRoute(builder: (context)=> HistoryPage()));
+             })
            ],
          )
         ],
