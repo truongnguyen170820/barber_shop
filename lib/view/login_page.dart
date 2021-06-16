@@ -152,8 +152,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buidelItem(String name, String url, TextEditingController controller,
-      {Widget widget}) {
+  Widget _buidelItem(String name, String url, TextEditingController controller, {Widget widget}) {
     return Container(
       margin: EdgeInsets.only(top: setHeight(16)),
       decoration: BoxDecoration(

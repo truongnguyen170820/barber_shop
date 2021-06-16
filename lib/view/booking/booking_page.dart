@@ -124,7 +124,9 @@ class _BookingPageState extends State<BookingPage> {
               ),
               Center(
                 child: ButtonCustom(
-                  onTap: (){},
+                  onTap: (){
+                    check();
+                  },
                   width: setWidth(220),
                   height: setHeight(50),
                   title: "Đặt lịch",
@@ -340,14 +342,12 @@ class _BookingPageState extends State<BookingPage> {
     }
     listHistory.add(History(
       name: _nameCtrl.text??"",
-
+      phone: _phoneCtrl.text??"",
+      dateStr:  Utilities.formatTimeOfDay(TimeOfDay(hour: hourIndex + 8, minute: minuteIndex* 10))
+              +" - "+Utilities.dateToString(selectedDay),
+      employess: "${listEmployess[selectEployess].name??""}",
+      imaageUrl: "",
     ));
-    // listHistory.add(HistoryHotel(_nameCtrl.text??"", _birthCtrl.text??"", _mobileCtrl.text??""
-    //     , Utilities.formatTimeOfDay(TimeOfDay(hour: hourIndex + 8, minute: minuteIndex* 10))
-    //         +" - "+Utilities.dateToString(selectedDay)
-    //     , "", nameRoom: listRoom[selectedVipIndex].nameRoom, urlRoom: listRoom[selectedVipIndex].url,
-    //     moneyRoom: listRoom[selectedVipIndex].moneyRoom,
-    //     address: _txtSearchAddress.text??""));
     Navigator.pop(context);
   }
   Future<Null> _selectDate(BuildContext context, TextEditingController txtController) async {
@@ -404,6 +404,7 @@ class History{
   int status;
   String dateStr;
   String note;
+  String employess;
 
-  History({this.imaageUrl, this.name, this.phone, this.status, this.dateStr, this.note});
+  History({this.imaageUrl, this.name, this.phone, this.status, this.dateStr, this.note, this.employess});
 }
